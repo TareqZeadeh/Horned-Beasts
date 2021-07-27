@@ -1,9 +1,8 @@
 import React from 'react';
 import HornedBeast from './HornedBeast'
-import Data from './assets/data.json'
 import CardGroup from 'react-bootstrap/CardGroup';
 import { Col } from "react-bootstrap";
-
+// import SelectedBeast from './SelectedBeast';
 class Main extends React.Component {
     render() {
 
@@ -12,13 +11,11 @@ class Main extends React.Component {
             <>
 
                 <CardGroup>
-                    {Data.map((aminal, i) => {
-                        // title=aminal.title;
-                        // imgURL=aminal.image_url;
-                        // description=aminal.description;
+                    {this.props.data.map((aminal, i) => {
+                        
                         return <>
                             <Col lg={4}>
-                                <HornedBeast title={aminal.title} url={aminal.image_url} description={aminal.description} />
+                                <HornedBeast title={aminal.title} url={aminal.image_url} description={aminal.description} modHandler={this.props.modHandler} />
                             </Col>
                         </>
                     })}

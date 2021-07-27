@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 // import Row from 'react-bootstrap/Row';
 import CardGroup from 'react-bootstrap/CardGroup';
+// import SelectedBeast from './SelectedBeast';
 
 
 
@@ -23,6 +24,10 @@ class HornedBeast extends React.Component {
             Numberofvotes: this.state.Numberofvotes + 1
         })
     };
+    
+    DataToModal = () => {
+        this.props.modHandler(this.props.title,this.props.url,this.props.description,true);
+    }
 
     render() {
         return (
@@ -46,8 +51,8 @@ class HornedBeast extends React.Component {
                     {/* <Row xs={1} md={3} className="g-4">
                         {Array.from({ length: 3 }).map((_, idx) => (
                             <Col> */}
-                                <Card style={{ width: "15%", height: "25%", margin:"5%" }}>
-                                    <Card.Img onClick={this.incrementNumOfPets} variant="top" src={this.props.url} width='33px' height='250px'/>
+                                <Card style={{ width: "15%", height: "25%", margin:"5%" }} onClick={this.incrementNumOfPets}>
+                                    <Card.Img  variant="top" onClick={this.DataToModal} src={this.props.url} width='33px' height='250px'/>
                                     <Card.Body>
                                         <Card.Title>{this.props.title}</Card.Title>
                                         <Card.Text>
